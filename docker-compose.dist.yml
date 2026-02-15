@@ -1,0 +1,11 @@
+services:
+  leetcode__node:
+    build: ./docker/images/node
+    container_name: leetcode__node
+    image: leetcode__node
+    tty: true
+    ports:
+      - 8099:8099
+    working_dir: /app
+    volumes:
+      - js:/app
