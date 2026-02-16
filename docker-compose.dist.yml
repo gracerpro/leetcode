@@ -8,4 +8,4 @@ services:
       - 8099:8099
     working_dir: /app
     volumes:
-      - js:/app
+      - ./js:/app

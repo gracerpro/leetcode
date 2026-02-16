@@ -10,7 +10,9 @@ import HelloWorld from './components/HelloWorld.vue'
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/minimum-deletions-to-make-string-balanced">1653. Minimum Deletions to Make String Balanced</RouterLink>
+        <RouterLink to="/minimum-deletions-to-make-string-balanced"
+          >1653. Minimum Deletions to Make String Balanced</RouterLink
+        >
       </nav>
     </div>
   </header>
