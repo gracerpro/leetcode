@@ -17,6 +17,11 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/MinimumDeletionsToMakeStringBalanced.vue'),
     },
+    {
+      path: '/middle-of-the-linked-list',
+      name: 'middle-of-the-linked-list',
+      component: () => import('../views/MiddleOfTheLinkedList.vue'),
+    },
   ],
 })
 

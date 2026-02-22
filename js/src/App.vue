@@ -13,6 +13,7 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/minimum-deletions-to-make-string-balanced"
           >1653. Minimum Deletions to Make String Balanced</RouterLink
         >
+        <RouterLink to="/middle-of-the-linked-list">876. MiddleOfTheLinkedList</RouterLink>
       </nav>
     </div>
   </header>
