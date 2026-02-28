@@ -23,3 +23,4 @@ Problems
 Read the where to start block
 1356. Sort Integers by The Number of 1 Bits
 1404. Number of Steps to Reduce a Number in Binary Representation to One
+1680. Concatenation of Consecutive Binary Numbers
