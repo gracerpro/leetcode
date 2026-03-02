@@ -8,13 +8,16 @@ import HelloWorld from './components/HelloWorld.vue'
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/minimum-deletions-to-make-string-balanced"
+      <ul class="nav">
+        <li><RouterLink to="/">Home</RouterLink></li>
+        <li><RouterLink to="/minimum-deletions-to-make-string-balanced"
           >1653. Minimum Deletions to Make String Balanced</RouterLink
-        >
-        <RouterLink to="/middle-of-the-linked-list">876. MiddleOfTheLinkedList</RouterLink>
-      </nav>
+        ></li>
+        <li><RouterLink to="/middle-of-the-linked-list">876. MiddleOfTheLinkedList</RouterLink></li>
+        <li><RouterLink to="/minimum-swaps-to-arrange-a-binary-grid"
+          >1536. Minimum Swaps to Arrange a Binary Grid</RouterLink
+        ></li>
+        </ul>
     </div>
   </header>
 
@@ -32,28 +35,28 @@ header {
   margin: 0 auto 2rem;
 }
 
-nav {
+.nav {
   width: 100%;
   font-size: 12px;
   text-align: center;
   margin-top: 2rem;
 }
 
-nav a.router-link-exact-active {
+.nav a.router-link-exact-active {
   color: var(--color-text);
 }
 
-nav a.router-link-exact-active:hover {
+.nav a.router-link-exact-active:hover {
   background-color: transparent;
 }
 
-nav a {
+.nav a {
   display: inline-block;
   padding: 0 1rem;
   border-left: 1px solid var(--color-border);
 }
 
-nav a:first-of-type {
+.nav a:first-of-type {
   border: 0;
 }
 
@@ -74,7 +77,7 @@ nav a:first-of-type {
     flex-wrap: wrap;
   }
 
-  nav {
+  .nav {
     text-align: left;
     margin-left: -1rem;
     font-size: 1rem;

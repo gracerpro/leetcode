@@ -22,6 +22,11 @@ const router = createRouter({
       name: 'middle-of-the-linked-list',
       component: () => import('../views/MiddleOfTheLinkedList.vue'),
     },
+    {
+      path: '/minimum-swaps-to-arrange-a-binary-grid',
+      name: 'minimum-swaps-to-arrange-a-binary-grid',
+      component: () => import('../views/1536_MinimumSwapsToArrangeABinaryGrid.vue'),
+    }
   ],
 })
 
