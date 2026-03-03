@@ -25,3 +25,4 @@ Read the where to start block
 1404. Number of Steps to Reduce a Number in Binary Representation to One
 1680. Concatenation of Consecutive Binary Numbers
 1689. Partitioning Into Minimum Number Of Deci-Binary Numbers
+1536. Minimum Swaps to Arrange a Binary Grid
