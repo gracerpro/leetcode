@@ -27,3 +27,4 @@ Read the where to start block
 1689. Partitioning Into Minimum Number Of Deci-Binary Numbers
 1536. Minimum Swaps to Arrange a Binary Grid
 1582. Special Positions in a Binary Matrix
+1758. Minimum Changes To Make Alternating Binary String
