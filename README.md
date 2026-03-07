@@ -29,3 +29,4 @@ Read the where to start block
 1582. Special Positions in a Binary Matrix
 1758. Minimum Changes To Make Alternating Binary String
 1784. Check if Binary String Has at Most One Segment of Ones
+1888. Minimum Number of Flips to Make the Binary String Alternating

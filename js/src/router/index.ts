@@ -26,6 +26,11 @@ const router = createRouter({
       path: '/minimum-swaps-to-arrange-a-binary-grid',
       name: 'minimum-swaps-to-arrange-a-binary-grid',
       component: () => import('../views/1536_MinimumSwapsToArrangeABinaryGrid.vue'),
+    },
+    {
+      path: '/minimum-number-of-flips-to-make-the-binary-string-alternating',
+      name: 'minimum-number-of-flips-to-make-the-binary-string-alternating',
+      component: () => import('../views/1888_MinimumNumberOfFlipsToMakeTheBinaryStringAlternating.vue'),
     }
   ],
 })
