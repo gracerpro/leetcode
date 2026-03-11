@@ -1,22 +1,21 @@
 <script setup lang="ts">
+const getGrid = () => [
+  [0, 0, 1],
+  [1, 1, 0],
+  [1, 0, 0],
+]
 
-const getGrid = () => ([
-  [0,0,1],
-  [1,1,0],
-  [1,0,0]
-])
+const getValidGrid = () => [
+  [1, 0, 0],
+  [1, 1, 0],
+  [0, 1, 1],
+]
 
-const getValidGrid = () => ([
-  [1,0,0],
-  [1,1,0],
-  [0,1,1]
-])
-
-const getNotValidGrid = () => ([
-  [1,1,0],
-  [1,1,0],
-  [0,1,0]
-])
+const getNotValidGrid = () => [
+  [1, 1, 0],
+  [1, 1, 0],
+  [0, 1, 0],
+]
 
 console.log(minSwaps(getGrid()), minSwaps(getValidGrid()), minSwaps(getNotValidGrid()))
 
@@ -24,14 +23,14 @@ function minSwaps(grid: number[][]): number {
   const maxRightOnes = getMaxRightOnes(grid)
 
   console.log('isValid', isValid(maxRightOnes))
-  console.log("maxRightOnes", maxRightOnes)
+  console.log('maxRightOnes', maxRightOnes)
 
   if (isValid(maxRightOnes)) {
     return swap(maxRightOnes)
   }
 
   return -1
-};
+}
 
 function swap(maxRightOnes: number[]): number {
   let count = 0
@@ -95,7 +94,6 @@ function isValid(maxRightOnes: number[]): boolean {
 
   return true
 }
-
 </script>
 
 <template>

@@ -15,14 +15,18 @@ import HelloWorld from './components/HelloWorld.vue'
             >1888. Minimum Number of Flips to Make the Binary String Alternating</RouterLink
           >
         </li>
-        <li><RouterLink to="/minimum-deletions-to-make-string-balanced"
-          >1653. Minimum Deletions to Make String Balanced</RouterLink
-        ></li>
+        <li>
+          <RouterLink to="/minimum-deletions-to-make-string-balanced"
+            >1653. Minimum Deletions to Make String Balanced</RouterLink
+          >
+        </li>
         <li><RouterLink to="/middle-of-the-linked-list">876. MiddleOfTheLinkedList</RouterLink></li>
-        <li><RouterLink to="/minimum-swaps-to-arrange-a-binary-grid"
-          >1536. Minimum Swaps to Arrange a Binary Grid</RouterLink
-        ></li>
-        </ul>
+        <li>
+          <RouterLink to="/minimum-swaps-to-arrange-a-binary-grid"
+            >1536. Minimum Swaps to Arrange a Binary Grid</RouterLink
+          >
+        </li>
+      </ul>
     </div>
   </header>
 

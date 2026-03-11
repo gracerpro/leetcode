@@ -30,8 +30,9 @@ const router = createRouter({
     {
       path: '/minimum-number-of-flips-to-make-the-binary-string-alternating',
       name: 'minimum-number-of-flips-to-make-the-binary-string-alternating',
-      component: () => import('../views/1888_MinimumNumberOfFlipsToMakeTheBinaryStringAlternating.vue'),
-    }
+      component: () =>
+        import('../views/1888_MinimumNumberOfFlipsToMakeTheBinaryStringAlternating.vue'),
+    },
   ],
 })
 
