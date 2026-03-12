@@ -1,21 +1,22 @@
 <script setup lang="ts">
-console.log(isPalindrome(101))
-console.log(isPalindrome(123))
-console.log(isPalindrome(0))
+console.log(isPalindrome(121))
 
 function isPalindrome(x: number): boolean {
-    const s = x.toString()
-    const length = s.length
+  if (x < 0) {
+    return false
+  }
 
-    const lengthDiv2 = Math.floor(length / 2)
-    for (let i = 0; i < lengthDiv2; ++i) {
-        if (s[i] !== s[length - 1 - i]) {
-            return false
-        }
-    }
+  let tmp = 0
+  let iterX = x
 
-    return true
-};
+  while (iterX > 0) {
+    tmp = tmp * 10 + (iterX % 10)
+    iterX = Math.trunc(iterX / 10)
+    console.log(iterX, tmp)
+  }
+
+  return tmp === x
+}
 </script>
 
 <template>

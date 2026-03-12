@@ -11,6 +11,9 @@ import HelloWorld from './components/HelloWorld.vue'
       <ul class="nav">
         <li><RouterLink to="/">Home</RouterLink></li>
         <li>
+          <RouterLink to="/palindrome-number"> 9. Palindrome Number </RouterLink>
+        </li>
+        <li>
           <RouterLink to="/minimum-number-of-flips-to-make-the-binary-string-alternating"
             >1888. Minimum Number of Flips to Make the Binary String Alternating</RouterLink
           >

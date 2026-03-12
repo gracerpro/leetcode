@@ -33,6 +33,11 @@ const router = createRouter({
       component: () =>
         import('../views/1888_MinimumNumberOfFlipsToMakeTheBinaryStringAlternating.vue'),
     },
+    {
+      path: '/palindrome-number',
+      name: 'palindrome-number',
+      component: () => import('../views/9_PalindromeNumber.vue'),
+    },
   ],
 })
 
