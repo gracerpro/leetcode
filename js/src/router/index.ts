@@ -38,6 +38,11 @@ const router = createRouter({
       name: 'palindrome-number',
       component: () => import('../views/9_PalindromeNumber.vue'),
     },
+    {
+      path: '/minimum-number-of-seconds-to-make-mountain-height-zero',
+      name: 'minimum-number-of-seconds-to-make-mountain-height-zero',
+      component: () => import('../views/3296_MinimumNumberOfSecondsToMakeMountainHeightZero.vue'),
+    }
   ],
 })
 
