@@ -42,7 +42,7 @@ const router = createRouter({
       path: '/minimum-number-of-seconds-to-make-mountain-height-zero',
       name: 'minimum-number-of-seconds-to-make-mountain-height-zero',
       component: () => import('../views/3296_MinimumNumberOfSecondsToMakeMountainHeightZero.vue'),
-    }
+    },
   ],
 })
 
