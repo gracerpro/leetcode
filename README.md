@@ -32,3 +32,4 @@ Read the where to start block
 1888. Minimum Number of Flips to Make the Binary String Alternating
 9. Palindrome Number
 3296. Minimum Number of Seconds to Make Mountain Height Zero
+Read the Data Structures and Algorithms, Introduction, overview
