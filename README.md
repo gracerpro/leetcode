@@ -34,3 +34,4 @@ Read the where to start block
 3296. Minimum Number of Seconds to Make Mountain Height Zero
 Read the Data Structures and Algorithms, Introduction, overview
 Read the arrays and strings, two pointers
+Read the arrays and strings, sliding window
