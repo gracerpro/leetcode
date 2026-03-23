@@ -35,3 +35,4 @@ Read the where to start block
 Read the Data Structures and Algorithms, Introduction, overview
 Read the arrays and strings, two pointers
 Read the arrays and strings, sliding window
+Read the binary search
