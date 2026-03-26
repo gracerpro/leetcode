@@ -38,3 +38,4 @@ Read the arrays and strings, sliding window
 Read the binary search
 485. Max Consecutive Ones
 1295. Find Numbers with Even Number of Digits
+977. Squares of a Sorted Array
