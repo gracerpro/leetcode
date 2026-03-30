@@ -11,6 +11,11 @@ import HelloWorld from './components/HelloWorld.vue'
       <ul class="nav">
         <li><RouterLink to="/">Home</RouterLink></li>
         <li>
+          <RouterLink to="/check-if-strings-can-be-made-equal-with-operations-ii">
+            2840. Check if Strings Can be Made Equal With Operations II
+          </RouterLink>
+        </li>
+        <li>
           <RouterLink to="/minimum-number-of-seconds-to-make-mountain-height-zero">
             3296. Minimum Number of Seconds to Make Mountain Height Zero
           </RouterLink>

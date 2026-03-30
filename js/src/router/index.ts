@@ -43,6 +43,11 @@ const router = createRouter({
       name: 'minimum-number-of-seconds-to-make-mountain-height-zero',
       component: () => import('../views/3296_MinimumNumberOfSecondsToMakeMountainHeightZero.vue'),
     },
+    {
+      path: '/check-if-strings-can-be-made-equal-with-operations-ii',
+      name: 'check-if-strings-can-be-made-equal-with-operations-ii',
+      component: () => import('../views/2840_CheckIfStringsCanBeMadeEqualWithOperationsII.vue'),
+    },
   ],
 })
 
