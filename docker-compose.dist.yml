@@ -9,3 +9,13 @@ services:
     working_dir: /app
     volumes:
       - ./js:/app
+  leetcode__php:
+    build: ./docker/images/php
+    container_name: leetcode__php
+    image: leetcode__php
+    tty: true
+    ports:
+      - 8098:8098
+    working_dir: /app
+    volumes:
+      - ./php:/app
