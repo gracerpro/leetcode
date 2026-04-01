@@ -8,33 +8,31 @@ class Solution {
      */
     function threeSum($nums) {
         $length = count($nums);
-        $resultArr = [];
+        $resultSet = [];
         $i = 0;
 
-        while ($i < $length - 2) {
-            $j = $i + 1;
+        for ($i = 0; $i < $length; ++$i) {
+            $target = -$nums[$i];
+            $jSet = [];
 
-            while ($j < $length - 1) {
-                $k = $j + 1;
+            for ($j = $i + 1; $j < $length; ++$j) {
+                $third = $target - $nums[$j];
 
-                while ($k < $length) {
-                    if ($nums[$i] + $nums[$j] + $nums[$k] === 0) {
-                        $arr = [$nums[$i], $nums[$j], $nums[$k]];
-                        sort($arr);
-                        $key = $arr[0] . '_'. $arr[1] . '_' . $arr[2];
+                if (isset($jSet[$third])) {
+                    $arr = [$nums[$i], $nums[$j], $third];
+                    sort($arr);
+                    $key = $arr[0] . '_' . $arr[1] . '_' . $arr[2];
 
-                        if (!isset($resultArr[$key])) {
-                            $resultArr[$key] = $arr;
-                        }
+                    if (!isset($resultSet[$key])) {
+                        $resultSet[$key] = $arr;
                     }
-                    $k++;
                 }
-                $j++;
+
+                $jSet[$nums[$j]] = true;
             }
-            $i++;
         }
 
-        return $resultArr;
+        return $resultSet;
     }
 }
 
@@ -43,7 +41,9 @@ $testArr = [-1,0,1,2,-1,-4];
 echo count($testArr), "\n";
 
 $solution = new Solution();
-//$result = $solution->threeSum($testArr);
+$result = $solution->threeSum($testArr);
 
-//print_r(count($result));
+echo "Result\n";
+//print_r($result);
+print_r(count($result));
 echo "\n";

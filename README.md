@@ -42,3 +42,4 @@ Read the binary search
 2946. Matrix Similarity After Cyclic Shifts
 2. Add Two Numbers
 2840. Check if Strings Can be Made Equal With Operations II
+15. 3Sum
