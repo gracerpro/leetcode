@@ -11,24 +11,38 @@ class Solution {
         $resultSet = [];
         $i = 0;
 
+        sort($nums);
+
         for ($i = 0; $i < $length; ++$i) {
-            $target = -$nums[$i];
-            $jSet = [];
+            if ($i > 0 && $nums[$i] === $nums[$i - 1]) {
+                continue;
+            }
+            $j = $i + 1;
+            $k = $length - 1;
 
-            for ($j = $i + 1; $j < $length; ++$j) {
-                $third = $target - $nums[$j];
+            while ($j < $k) {
+                $sum = $nums[$i] + $nums[$j] + $nums[$k];
 
-                if (isset($jSet[$third])) {
-                    $arr = [$nums[$i], $nums[$j], $third];
+                if ($sum < 0) {
+                    $j++;
+                } else if ($sum > 0) {
+                    $k--;
+                } else {
+                    $arr = [$nums[$i], $nums[$j], $nums[$k]];
                     sort($arr);
                     $key = $arr[0] . '_' . $arr[1] . '_' . $arr[2];
 
                     if (!isset($resultSet[$key])) {
                         $resultSet[$key] = $arr;
                     }
-                }
 
-                $jSet[$nums[$j]] = true;
+                    $j++;
+                    $k--;
+
+                    while($j < $k && $nums[$j] == $nums[$j - 1]) {
+                        $j++;
+                    }
+                }
             }
         }
 
