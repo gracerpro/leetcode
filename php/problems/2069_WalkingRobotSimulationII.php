@@ -13,6 +13,9 @@ class Robot {
     private int $height;
     private array $position;
 
+    private int $index;
+    private array $positions = [];
+
     /**
      * @param int $width
      * @param int $height
@@ -22,6 +25,27 @@ class Robot {
         $this->height = $height;
         $this->position = [0, 0];
         $this->face = Face::East;
+
+        for ($i = 0; $i < $width; ++$i) {
+            $this->positions[] = [$i, 0];
+        }
+        for ($i = 1; $i < $height; ++$i) {
+            $this->positions[] = [$width - 1, $i];
+        }
+        for ($i = $width - 2; $i >= 0; --$i) {
+            $this->positions[] = [$i, $height - 1];
+        }
+        for ($i = $height - 2; $i > 0; --$i) {
+            $this->positions[] = [0, $i];
+        }
+
+        //...
+        static $faceMap = [
+            Face::East->value => Face::North,
+            Face::North->value => Face::West,
+            Face::West->value => Face::South,
+            Face::South->value => Face::East,
+        ];
     }
 
     /**
@@ -29,64 +53,21 @@ class Robot {
      * @return NULL
      */
     function step($num) {
-        for ($i = 0; $i < $num; ++$i) {
-            $this->privateStep();
-        }
-    }
-
-    private function privateStep()
-    {
-        $tmpX = $this->position[0];
-        $tmpY = $this->position[1];
-
-        switch ($this->face) {
-            case Face::East:
-                $tmpX += 1;
-                break;
-            case Face::West:
-                $tmpX -= 1;
-                break;
-            case Face::North:
-                $tmpY += 1;
-                break;
-            case Face::South:
-                $tmpY -= 1;
-                break;
-        }
-
-        static $faceMap = [
-            Face::East->value => Face::North,
-            Face::North->value => Face::West,
-            Face::West->value => Face::South,
-            Face::South->value => Face::East,
-        ];
-
-        if ($tmpX < 0 || $tmpX >= $this->width) {
-            $this->face = $faceMap[$this->face->value];
-
-            return $this->privateStep();
-        }
-        if ($tmpY < 0 || $tmpY >= $this->height) {
-            $this->face = $faceMap[$this->face->value];
-
-            return $this->privateStep();
-        }
-
-        $this->position[0] = $tmpX;
-        $this->position[1] = $tmpY;
+        return 0; // change self::index
     }
 
     /**
      * @return Integer[]
      */
     function getPos() {
-        return $this->position;
+        return [0, 0]; // dependence by self::index
     }
 
     /**
      * @return String
      */
     function getDir() {
+        // calculate
         return $this->face->value;
     }
 }
