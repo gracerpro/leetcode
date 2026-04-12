@@ -8,12 +8,11 @@ enum Face: string {
 }
 
 class Robot {
-    private Face $face;
     private int $width;
     private int $height;
-    private array $position;
 
-    private int $index;
+    private $isSteped = false;
+    private int $index = 0;
     private array $positions = [];
 
     /**
@@ -23,8 +22,6 @@ class Robot {
     function __construct($width, $height) {
         $this->width = $width;
         $this->height = $height;
-        $this->position = [0, 0];
-        $this->face = Face::East;
 
         for ($i = 0; $i < $width; ++$i) {
             $this->positions[] = [$i, 0];
@@ -38,37 +35,45 @@ class Robot {
         for ($i = $height - 2; $i > 0; --$i) {
             $this->positions[] = [0, $i];
         }
-
-        //...
-        static $faceMap = [
-            Face::East->value => Face::North,
-            Face::North->value => Face::West,
-            Face::West->value => Face::South,
-            Face::South->value => Face::East,
-        ];
     }
 
     /**
-     * @param Integer $num
+     * @param int $num
      * @return NULL
      */
     function step($num) {
-        return 0; // change self::index
+        $this->isSteped = true;
+        $this->index = ($this->index + $num) % count($this->positions);
     }
 
     /**
      * @return Integer[]
      */
     function getPos() {
-        return [0, 0]; // dependence by self::index
+        return $this->positions[$this->index];
     }
 
     /**
      * @return String
      */
     function getDir() {
-        // calculate
-        return $this->face->value;
+        if ($this->isSteped === false) {
+            return Face::East->value;
+        }
+
+        $pos = $this->getPos();
+
+        if ($pos[0] > 0 && $pos[1] === 0) {
+            return Face::East->value;
+        }
+        if ($pos[0] === $this->width - 1 && $pos[1] > 0) {
+            return Face::North->value;
+        }
+        if ($pos[0] < $this->width - 1 && $pos[1] === $this->height - 1) {
+            return Face::West->value;
+        }
+
+        return Face::South->value;
     }
 }
 
