@@ -1,36 +1,68 @@
 <?php
 declare(strict_types=1);
 
+class ListItem {
+    public function __construct(
+        public string $key,
+        public string $value
+    ) {
+    }
+}
+
 class HashTable
 {
-    private array $buckets = []; // TODO: linked list
+    /** @var (SplDoublyLinkedList|null)[] */
+    private array $buckets = [];
+
+    private int $size;
 
     public function __construct(int $size)
     {
-        $this->buckets = array_fill(0, $size, []);
+        $this->size = $size;
+
+        for ($i = 0; $i < $size; ++$i) {
+            $this->buckets[$i] = null;
+        }
     }
 
     public function setValue(string $key, string $value)
     {
         $index = $this->hash($key);
+        $list = $this->buckets[$index];
 
-        foreach ($this->buckets[$index] as $_key => $_value) {
-            if ($_key === $key) {
-                $this->buckets[$index][$key] = $value;
+        if ($list === null) {
+            $list = new SplDoublyLinkedList();
+            $this->buckets[$index] = $list;
+        }
+
+        for ($list->rewind(); $list->valid(); $list->next()) {
+            /** @var ListItem $item */
+            $item = $list->current();
+
+            if ($item->key === $key) {
+                $item->value = $value;
                 return;
             }
         }
 
-        $this->buckets[$index][$key] = $value;
+        $list->push(new ListItem($key, $value));
     }
 
     public function getValue(string $key)
     {
         $index = $this->hash($key);
+        $list = $this->buckets[$index];
 
-        foreach ($this->buckets[$index] as $_key => $value) {
-            if ($_key === $key) {
-                return $value;
+        if ($list === null) {
+            return null;
+        }
+
+        for ($list->rewind(); $list->valid(); $list->next()) {
+            /** @var ListItem $item */
+            $item = $list->current();
+
+            if ($item->key === $key) {
+                return $item->value;
             }
         }
 
@@ -40,11 +72,37 @@ class HashTable
     public function deleteValue(string $key)
     {
         $index = $this->hash($key);
+        $list = $this->buckets[$index];
 
-        foreach ($this->buckets[$index] as $_key => $value) {
-            if ($_key === $key) {
-                unset($this->buckets[$index][$_key]);
-                return;
+        if ($list === null) {
+            return;
+        }
+
+        $i = 0;
+        for ($list->rewind(); $list->valid(); $list->next()) {
+            /** @var ListItem $item */
+            $item = $list->current();
+
+            if ($item->key === $key) {
+                $list->offsetUnset($i);
+
+                if ($list->isEmpty()) {
+                    $this->buckets[$index] = null;
+                }
+                break;
+            }
+
+            ++$i;
+        }
+    }
+
+    public function clear()
+    {
+        for ($i = 0; $i < $this->size; ++$i) {
+            $list = $this->buckets[$i];
+
+            if ($list) {
+                $this->buckets[$i] = null;
             }
         }
     }
@@ -57,7 +115,7 @@ class HashTable
             $hash += mb_ord($key[$i]);
         }
 
-        return $hash % count($this->buckets);
+        return $hash % $this->size;
     }
 }
 
@@ -67,8 +125,6 @@ $table->setValue('boss', 'bbb');
 $table->setValue('data', 'ddd');
 $table->setValue('data', 'dddddd');
 
-var_dump($table);
-
 var_dump($table->getValue('boss'));
 var_dump($table->getValue('no'));
 
@@ -77,4 +133,7 @@ var_dump($table->getValue('data'));
 $table->deleteValue('data');
 var_dump($table->getValue('data'));
 
+echo 'clear', "\n";
+
+$table->clear();
 var_dump($table);
