@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 class HashTable
 {
-    private array $buckets = [];
+    private array $buckets = []; // TODO: linked list
 
     public function __construct(int $size)
     {
@@ -37,6 +37,18 @@ class HashTable
         return null;
     }
 
+    public function deleteValue(string $key)
+    {
+        $index = $this->hash($key);
+
+        foreach ($this->buckets[$index] as $_key => $value) {
+            if ($_key === $key) {
+                unset($this->buckets[$index][$_key]);
+                return;
+            }
+        }
+    }
+
     private function hash(string $key): int
     {
         $hash = 0;
@@ -47,19 +59,22 @@ class HashTable
 
         return $hash % count($this->buckets);
     }
-
-    public function deleteValue(string $key)
-    {
-
-    }
 }
 
 $table = new HashTable(10);
 $table->setValue('big', 'aaa');
 $table->setValue('boss', 'bbb');
 $table->setValue('data', 'ddd');
+$table->setValue('data', 'dddddd');
 
 var_dump($table);
 
 var_dump($table->getValue('boss'));
 var_dump($table->getValue('no'));
+
+echo 'data', "\n";
+var_dump($table->getValue('data'));
+$table->deleteValue('data');
+var_dump($table->getValue('data'));
+
+var_dump($table);
