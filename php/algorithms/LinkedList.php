@@ -6,6 +6,7 @@ class Node
     public function __construct(
         public int $value,
         public Node|null $next = null,
+        public Node|null $prev = null,
     ) {
     }
 }
@@ -17,6 +18,11 @@ class LinkedList
     private Node|null $head = null;
     private Node|null $tail = null;
 
+    public function __destruct()
+    {
+        // free
+    }
+
     public function push(int $value)
     {
         $node = new Node($value);
@@ -27,6 +33,7 @@ class LinkedList
         if ($this->tail === null) {
             $this->tail = $node;
         } else {
+            $node->prev = $this->tail;
             $this->tail->next = $node;
             $this->tail = $node;
         }
@@ -39,23 +46,19 @@ class LinkedList
         if ($this->size === 0) {
             return;
         }
-        if ($this->size > 1) {
-            $i = 0;
-            $node = $this->head;
-            while ($i < $this->size - 2) {
-                $node = $node->next;
-                ++$i;
-            }
-            $this->tail = $node;
-            $this->tail->next = null;
-        }
 
-        $this->size--;
+        $node = $this->tail->prev;
 
-        if ($this->size === 0) {
+        if ($node !== null) {
+            $node->next = null;
+        } else {
             $this->head = null;
-            $this->tail = null;
         }
+
+        // free $tail
+
+        $this->tail = $node;
+        $this->size--;
     }
 
     public function getSize(): int
