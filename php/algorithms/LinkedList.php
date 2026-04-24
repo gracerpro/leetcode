@@ -41,6 +41,24 @@ class LinkedList
         $this->size++;
     }
 
+    public function pushLeft(int $value)
+    {
+        $node = new Node($value);
+
+        if ($this->head === null) {
+            $this->head = $node;
+        } else {
+            $node->next = $this->head;
+            $this->head->prev = $node;
+            $this->head = $node;
+        }
+        if ($this->tail === null) {
+            $this->tail = $node;
+        }
+
+        $this->size++;
+    }
+
     public function pop()
     {
         if ($this->size === 0) {
@@ -61,6 +79,27 @@ class LinkedList
         $this->size--;
     }
 
+    public function popLeft()
+    {
+        if ($this->size === 0) {
+            return;
+        }
+
+        $node = $this->head->next;
+
+        if ($node !== null) {
+            $node->prev = null;
+            $this->head = $node;
+        } else {
+            $this->tail = null;
+        }
+
+        // free $head
+
+        $this->head = $node;
+        $this->size--;
+    }
+
     public function getSize(): int
     {
         return $this->size;
@@ -68,10 +107,9 @@ class LinkedList
 }
 
 $list = new LinkedList();
-$list->push(1);
-$list->push(2);
-$list->push(3);
-$list->pop();
-$list->pop();
+$list->pushLeft(1);
+$list->pushLeft(2);
+$list->pushLeft(3);
+$list->popLeft();
 
 var_dump($list);
