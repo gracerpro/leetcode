@@ -47,3 +47,4 @@ Read the binary search
 1089. Duplicate Zeros
 874. Walking Robot Simulation
 2069. Walking Robot Simulation II
+Read the basic data structures, b-tree indexes
